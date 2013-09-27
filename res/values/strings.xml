@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Phone As Tablet</string>
+    <string name="action_settings">Settings</string>
+    <string name="portrait_resolution_prompt">Resolution for Portrait mode is:</string>
+    <string name="multiplier">X</string>
+    <string name="reset">Reset to default</string>
+    <string name="landscape_resolution_prompt">Resolution for Landscape mode is:</string>
+    <string name="mirror_portrait">Same as Portrait mode</string>
+    <string name="apply">Apply Resolution</string>
+    <string name="resolution_policy_prompt">Resolution must change:</string>
+    <string-array name="policies">
+        <item>Only from the button below\n(default resolution after reboot)</item>
+        <item>Dynamically change resolution\n(run in background and on boot)</item>
+        <!-- <item>On demand change resolution\n(run from notification)</item> -->
+    </string-array>
+    <string name="default_button_help">Press \"%s\" button to apply the default settings</string>
+    <string name="success">Display configurations saved successfully</string>
+    <string name="notification_ticker">Notification added</string>
+
+</resources>
