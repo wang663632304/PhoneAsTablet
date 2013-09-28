@@ -73,7 +73,10 @@ public final class SuCommands {
     }
     
     private static boolean existsOverridenResolution(String[] resolutions){
-	return resolutions[1].contains("size");
+	if (resolutions.length > 1)
+	    return resolutions[1].contains("size");
+	else
+	    return false;
     }
     
     public static void fallbackToDefaultResolution() throws IOException{
