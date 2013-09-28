@@ -9,6 +9,8 @@ package info.bits.phoneastablet;
 
 public final class R {
     public static final class array {
+        /**  <item>On demand change resolution\n(run from notification)</item> 
+         */
         public static final int policies=0x7f060000;
     }
     public static final class attr {
