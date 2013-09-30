@@ -1,6 +1,3 @@
-/**
- * 
- */
 package info.bits.phoneastablet.listeners;
 
 import info.bits.phoneastablet.utils.DatabaseHandler;
@@ -9,7 +6,8 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 
 /**
- * @author little
+ * @author LiTTle
+ * This is a listener which is applied to enhance the behavior of the checkbox.
  *
  */
 public class MyOnCheckedListener implements OnCheckedChangeListener {
@@ -18,7 +16,7 @@ public class MyOnCheckedListener implements OnCheckedChangeListener {
     	landscapeTransimitter, landscapeReceiver;
     private final DatabaseHandler dbHandler;
     /**
-     * 
+     * Constructs a new listener and prepare it for use.
      */
     public MyOnCheckedListener(DatabaseHandler handler, EditText...fields) {
 	portraitTransmitter = fields[0];
@@ -28,7 +26,9 @@ public class MyOnCheckedListener implements OnCheckedChangeListener {
 	dbHandler = handler;
     }
 
-    /* (non-Javadoc)
+    /**
+     * It is called every time the checkbox changes its state.
+     * It is enhanced to change the DB data also. 
      * @see android.widget.CompoundButton.OnCheckedChangeListener#onCheckedChanged(android.widget.CompoundButton, boolean)
      */
     @Override

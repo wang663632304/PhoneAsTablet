@@ -19,6 +19,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 
+/**
+ * @author LiTTle
+ * It is the main activity for the application.
+ */
 public class Resolution extends Activity {
 
     private EditText portraitWidth, portraitHeight, landscapeWidth,
@@ -29,6 +33,11 @@ public class Resolution extends Activity {
     private DatabaseHandler dbHandler;
     private NotificationHandler notificationHandler;
 
+    /**
+     * Creates the activity.
+     * 
+     * @see android.app.Activity#onCreate(android.os.Bundle)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
@@ -39,6 +48,11 @@ public class Resolution extends Activity {
 	setupViews();
     }
 
+    /**
+     * Sets up graphical objects of this activity.
+     * Applies any initialization and listeners needed for the graphical objects.
+     * 
+     */
     private final void setupViews() {
 	portraitWidth = (EditText) findViewById(R.id.portrait_resolution_width);
 	portraitHeight = (EditText) findViewById(R.id.portrait_resolution_height);
@@ -86,6 +100,10 @@ public class Resolution extends Activity {
 	}
     }
 
+    /**
+     * Creates the database used by the application.
+     * Also adds to the DB the default values for the resolution.
+     */
     private final void createDB(){
 	//get the resolutions
 	try {
@@ -100,6 +118,10 @@ public class Resolution extends Activity {
 	dbHandler.saveDefaultResolution(dimens[0], dimens[1]);
     }
     
+    /**
+     * Resets the device's resolution to default.
+     * @param view
+     */
     public void resetToDefault(View view){
 	String[] defaultResolution = dbHandler.getDefaultResolution();
 	portraitWidth.setText(defaultResolution[0]);
@@ -110,6 +132,10 @@ public class Resolution extends Activity {
 	Toast.makeText(this, help, Toast.LENGTH_LONG).show();
     }
     
+    /**
+     * Applies the specified settings to the device.
+     * @param view
+     */
     public void applySettings(View view){
 	dbHandler.saveLatestResolutions(portraitWidth.getText().toString(), portraitHeight.getText().toString(),
 		landscapeWidth.getText().toString(), landscapeHeight.getText().toString());

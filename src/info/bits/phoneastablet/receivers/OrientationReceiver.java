@@ -14,8 +14,8 @@ import android.content.Intent;
 import android.content.res.Configuration;
 
 /**
- * @author little
- *
+ * @author LiTTle
+ * This receiver is called every time the orientation for the device changes.
  */
 public class OrientationReceiver extends BroadcastReceiver {
 
@@ -23,7 +23,9 @@ public class OrientationReceiver extends BroadcastReceiver {
     private DatabaseHandler dbHandler;
     private int policy;
     private Context context;
-    /* (non-Javadoc)
+    
+    /**
+     * Changes the device settings according to user's preferences.
      * @see android.content.BroadcastReceiver#onReceive(android.content.Context, android.content.Intent)
      */
     @Override

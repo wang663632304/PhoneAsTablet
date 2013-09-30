@@ -1,6 +1,3 @@
-/**
- * 
- */
 package info.bits.phoneastablet.utils;
 
 import android.content.ContentValues;
@@ -10,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * @author little
- *
+ * @author LiTTle
+ * A handler of the database. This handler communicate to the database and stores the user's preferences. 
  */
 public class DatabaseHandler extends SQLiteOpenHelper {
 
@@ -37,16 +34,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	    NOTIFICATION_POLICY = 2;
 	    
     /**
+     * Triggers the creation of the database.
      * @param context
-     * @param name
-     * @param factory
-     * @param version
      */
     public DatabaseHandler(Context context) {
 	super(context, DB_NAME, null, DB_VERSION);
     }
 
-    /* (non-Javadoc)
+    /**
+     * Creates the database.
      * @see android.database.sqlite.SQLiteOpenHelper#onCreate(android.database.sqlite.SQLiteDatabase)
      */
     @Override
@@ -70,7 +66,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	db.execSQL(settingsCmd);
     }
 
-    /* (non-Javadoc)
+    /**
      * @see android.database.sqlite.SQLiteOpenHelper#onUpgrade(android.database.sqlite.SQLiteDatabase, int, int)
      */
     @Override
@@ -83,6 +79,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
     
+    /**
+     * Stores the default resolution settings for the device.
+     * @param dimens default resolution dimension for the device
+     */
     public void saveDefaultResolution(String... dimens){
 	SQLiteDatabase db = this.getWritableDatabase();
 	ContentValues defaultValues = new ContentValues();
@@ -94,6 +94,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	db.close();
     }
     
+    /**
+     * Returns the defautl resolution values for the device.
+     * @return the default resolution values
+     */
     public String[] getDefaultResolution(){
 	String countQuery = "SELECT * FROM " + TABLE_DEFAULT_RESOLUTION + " WHERE _id=1";
         SQLiteDatabase db = getReadableDatabase();
@@ -106,6 +110,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return result;
     }
     
+    /**
+     * Stores the latest resolution values according to user's preferences.
+     * @param dimens user defined resolution values
+     */
     public void saveLatestResolutions(String... dimens){
 	SQLiteDatabase db = this.getWritableDatabase();
 	ContentValues customValues = new ContentValues();
@@ -122,6 +130,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	db.close();
     }
     
+    /**
+     * Stores the policy for resolution settings.
+     * The policy defines when the resolution will be applied, what values will be used, etc.
+     * @param value the policy for resolution settings
+     */
     public void saveResolutionPolicy(String value){
 	SQLiteDatabase db = this.getWritableDatabase();
 	ContentValues policy = new ContentValues();
@@ -135,7 +148,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	    db.insert(TABLE_SETTINGS, null, policy);
 	db.close();
     }
-    
+
+    /**
+     * Returns the policy for resolution settings.
+     * The policy defines when the resolution will be applied, what values will be used, etc.
+     * @return the policy for resolution settings
+     */
     public int getResolutionPolicy(){
 	int result;
 	String countQuery = "SELECT * FROM " + TABLE_SETTINGS + " WHERE _id=1";
@@ -152,6 +170,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return result;
     }
     
+    /**
+     * Returns the user defined value of the width or height depending the orientation of the device.
+     * If there is no record it returns the default values.
+     * @param dimension width/height of the current orientation
+     * @param table the database table from which retrieves the values.
+     * @return
+     */
     public String getDimension(String dimension, String table){
 	String result = null;
 	String countQuery = "SELECT * FROM " + table;

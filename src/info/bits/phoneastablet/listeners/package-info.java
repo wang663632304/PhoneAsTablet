@@ -1,8 +1,7 @@
 /**
+ * @author LiTTle
  * 
- */
-/**
- * @author little
- *
+ * Contains the listeners I need for this application.
+ * 
  */
 package info.bits.phoneastablet.listeners;

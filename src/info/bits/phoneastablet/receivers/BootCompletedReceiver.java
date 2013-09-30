@@ -14,19 +14,13 @@ import android.content.Context;
 import android.content.Intent;
 
 /**
- * @author Tsapalos
- *
+ * @author LiTTle
+ * This is a receiver which is called every time the device starts.
  */
 public class BootCompletedReceiver extends BroadcastReceiver {
 
     /**
-     * 
-     */
-    public BootCompletedReceiver() {
-	// TODO Auto-generated constructor stub
-    }
-
-    /* (non-Javadoc)
+     * Change the device's settings according to user's preferences.
      * @see android.content.BroadcastReceiver#onReceive(android.content.Context, android.content.Intent)
      */
     @Override

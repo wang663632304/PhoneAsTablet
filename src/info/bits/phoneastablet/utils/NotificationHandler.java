@@ -1,6 +1,3 @@
-/**
- * 
- */
 package info.bits.phoneastablet.utils;
 
 import info.bits.phoneastablet.R;
@@ -12,8 +9,8 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
 /**
- * @author Tsapalos
- *
+ * @author LiTTle
+ * A handler of the notification. This handler enables/disables the notification at the notification area. 
  */
 public class NotificationHandler {
 
@@ -21,13 +18,16 @@ public class NotificationHandler {
     private final Context context;
     private NotificationManager nm;
     /**
-     * 
+     * Prepares the notification to be used.
      */
     public NotificationHandler(Context ctx) {
 	// TODO Auto-generated constructor stub
 	context = ctx;
     }
 
+    /**
+     * Shows the notification at the notification area.
+     */
     public void enableNotification(){
 	NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 	builder.setTicker(context.getResources().getString(R.string.notification_ticker))
@@ -42,6 +42,9 @@ public class NotificationHandler {
 	nm.notify(NOTIFICATION_ID, notification);
     }
     
+    /**
+     * Hides the notification from the notification area.
+     */
     public void disableNotification(){
 	if(nm != null)
 	    nm.cancel(NOTIFICATION_ID);

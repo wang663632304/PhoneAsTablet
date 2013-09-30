@@ -1,0 +1,1 @@
+javadoc -keywords -d \doc -sourcepath \src info.bits.phoneastablet info.bits.phoneastablet.listeners info.bits.phoneastablet.receivers info.bits.phoneastablet.services info.bits.phoneastablet.utils

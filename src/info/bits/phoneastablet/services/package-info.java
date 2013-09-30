@@ -1,5 +1,5 @@
 /**
- * @author little
+ * @author LiTTle
  * 
  * Contains the services I need for this application. 
  */
