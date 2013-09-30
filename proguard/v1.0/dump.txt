@@ -56289,17 +56289,25 @@ Methods (count = 5):
     Access flags: 0xa
       = private static boolean a(java.lang.String[])
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 9, locals = 1, stack = 2):
+    + Code attribute instructions (code length = 17, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] iconst_1
-      [2] aaload
-      [3] ldc #3
+      [1] arraylength
+      [2] iconst_1
+      [3] ificmple +12 (target=15)
+      [6] aload_0 v0
+      [7] iconst_1
+      [8] aaload
+      [9] ldc #3
         + String [size]
-      [5] invokevirtual #31
+      [11] invokevirtual #31
         + Methodref [java/lang/String.contains (Ljava/lang/CharSequence;)Z]
-      [8] ireturn
+      [14] ireturn
+      [15] iconst_0
+      [16] ireturn
       Code attribute exceptions (count = 0):
-      Code attribute attributes (attribute count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 1):
+        - [15] Var: ..., Stack: (empty)
   + Method:       b()V
     Access flags: 0x9
       = public static void b()
