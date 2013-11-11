@@ -81,19 +81,19 @@ public class NotificationHandler {
      * @param view
      */
     public void setListeners(RemoteViews view){
-	//TODO screencapture listener
+	//App start listener
 	Intent app=new Intent(context, NotificationButtonsHandler.class);
 	app.putExtra("DO", "app");
 	PendingIntent pApp = PendingIntent.getActivity(context, 0, app, 0);
 	view.setOnClickPendingIntent(R.id.app, pApp);
 	
-	//TODO screen size listener
+	//default screen size listener
 	Intent defaultResolution=new Intent(context, NotificationButtonsHandler.class);
 	defaultResolution.putExtra("DO", "default");
 	PendingIntent pDefaultResolution = PendingIntent.getActivity(context, 1, defaultResolution, 0);
 	view.setOnClickPendingIntent(R.id.default_resolution, pDefaultResolution);
 	
-	//reboot listener
+	//custom screen size listener
 	Intent customResolution=new Intent(context, NotificationButtonsHandler.class);
 	customResolution.putExtra("DO", "custom");
 	PendingIntent pCustomResolution = PendingIntent.getActivity(context, 2, customResolution, 0);
