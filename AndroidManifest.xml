@@ -44,6 +44,12 @@
         <service android:name="info.bits.phoneastablet.services.OrientationService"
             android:enabled="true">
         </service>
+        
+        <activity 
+            android:noHistory="true" 
+            android:name="info.bits.phoneastablet.utils.NotificationButtonsHandler" 
+            android:excludeFromRecents="true">
+        </activity>
     </application>
 
 </manifest>

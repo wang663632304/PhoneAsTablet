@@ -25,6 +25,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
+import android.widget.RemoteViews;
 
 /**
  * @author LiTTle
@@ -52,12 +53,18 @@ public class NotificationHandler {
 	.setAutoCancel(false)
 	.setContentIntent(PendingIntent.getActivity(context, 0, new Intent(), 0))
 	.setContentTitle(context.getString(R.string.app_name))
-	.setContentText("NOTIFICATION")
+	.setContentText("Quick settings' buttons should appear here...")
 	.setSmallIcon(R.drawable.ic_launcher);
 	nm = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 	Notification notification = builder.build();
 	notification.flags |= Notification.FLAG_ONGOING_EVENT;
+	
+	RemoteViews contentView=new RemoteViews(context.getPackageName(), R.layout.notification);	
+	//set the button listeners
+	setListeners(contentView);	
+	notification.contentView = contentView;
 	nm.notify(NOTIFICATION_ID, notification);
+	
     }
     
     /**
@@ -67,4 +74,29 @@ public class NotificationHandler {
 	if(nm != null)
 	    nm.cancel(NOTIFICATION_ID);
     }
+    
+    /**
+     * Sets the listeners for the buttons at the notification area.
+     * 
+     * @param view
+     */
+    public void setListeners(RemoteViews view){
+	//TODO screencapture listener
+	Intent app=new Intent(context, NotificationButtonsHandler.class);
+	app.putExtra("DO", "app");
+	PendingIntent pApp = PendingIntent.getActivity(context, 0, app, 0);
+	view.setOnClickPendingIntent(R.id.app, pApp);
+	
+	//TODO screen size listener
+	Intent defaultResolution=new Intent(context, NotificationButtonsHandler.class);
+	defaultResolution.putExtra("DO", "default");
+	PendingIntent pDefaultResolution = PendingIntent.getActivity(context, 1, defaultResolution, 0);
+	view.setOnClickPendingIntent(R.id.default_resolution, pDefaultResolution);
+	
+	//reboot listener
+	Intent customResolution=new Intent(context, NotificationButtonsHandler.class);
+	customResolution.putExtra("DO", "custom");
+	PendingIntent pCustomResolution = PendingIntent.getActivity(context, 2, customResolution, 0);
+	view.setOnClickPendingIntent(R.id.custom_resolution, pCustomResolution);
+}
 }

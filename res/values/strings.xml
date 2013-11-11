@@ -13,10 +13,13 @@
     <string-array name="policies">
         <item>Only from the button below\n(default resolution after reboot)</item>
         <item>Dynamically change resolution\n(run in background and on boot)</item>
-        <!-- <item>On demand change resolution\n(run from notification)</item> -->
+        <item>On demand change resolution\n(run from notification)</item>
     </string-array>
     <string name="default_button_help">Press \"%s\" button to apply the default settings</string>
     <string name="success">Display configurations saved successfully</string>
-    <string name="notification_ticker">Notification added</string>
+    <string name="notification_ticker">Phone As Tablet quick settings</string>
+    <string name="app">App</string>
+    <string name="custom_resolution">Custom</string>
+    <string name="default_resolution">Default</string>
 
 </resources>
