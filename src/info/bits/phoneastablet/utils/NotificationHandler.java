@@ -53,7 +53,7 @@ public class NotificationHandler {
 	.setAutoCancel(false)
 	.setContentIntent(PendingIntent.getActivity(context, 0, new Intent(), 0))
 	.setContentTitle(context.getString(R.string.app_name))
-	.setContentText("Quick settings' buttons should appear here...")
+	.setContentText(context.getString(R.string.notification_private_text))
 	.setSmallIcon(R.drawable.ic_launcher);
 	nm = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 	Notification notification = builder.build();

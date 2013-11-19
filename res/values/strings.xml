@@ -21,5 +21,6 @@
     <string name="app">App</string>
     <string name="custom_resolution">Custom</string>
     <string name="default_resolution">Default</string>
+    <string name="notification_private_text">Quick settings\' buttons should appear here\u2026</string>
 
 </resources>
